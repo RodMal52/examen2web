@@ -1,0 +1,7 @@
+<h1>Editing entry</h1>
+
+<%= render 'form' %>
+
+<%discussion = Discussion.find_by_id(@entry.discussion_id) %>
+<%= link_to 'Show', @entry %> |
+<%= link_to 'Back', discussion %>

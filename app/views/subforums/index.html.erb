@@ -1,0 +1,37 @@
+<div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <h1>FOR-IT</h1>
+      <p>Un foro para cada tema que se te ocurra</p>  
+    </div>
+    <button class="new_sub"><%= link_to 'Crear Nuevo Subforo', new_subforum_path %></button>
+  </div>
+</div>
+
+<div class="lista">
+<h1>Subforos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre del Subforo</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subforums.each do |subforum| %>
+      <tr>
+        <td><%=link_to subforum.title, subforum%></td>
+        <td><button class="new_sub"><%= link_to 'Editar', edit_subforum_path(subforum) %></button></td>
+        <td><button class="new_sub"><%= link_to 'Borrar', subforum, method: :delete, data: { confirm: 'Estas por eliminar este sub-foro y todas sus discusiones y respuestas correspondientes. ¿Estas seguro?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+

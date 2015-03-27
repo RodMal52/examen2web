@@ -1,0 +1,21 @@
+<%= form_for(@subforum) do |f| %>
+  <% if @subforum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subforum.errors.count, "error") %> prohibited this subforum from being saved:</h2>
+
+      <ul>
+      <% @subforum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+   <p>Titulo del Subforo</p>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

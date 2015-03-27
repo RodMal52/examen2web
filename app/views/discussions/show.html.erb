@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="side-image">
+  <div class="images-wrapper"></div>
+    <div class="side-image-content">
+      <h4>Autor: <%= @discussion.author %></h4>
+      <h1>Discusion: <%= @discussion.name %></h1>
+      <p><%= @discussion.description %></p>
+      <h5><strong>Last Modified:</strong>
+  <%= @discussion.updated_at %></h5>
+      <button class="new_sub"><%= link_to 'Responder', new_entry_path(session_discussion_id: @discussion.id) %></button>
+  </div>
+</div>
+
+
+	<%@discussion.entries.each do |entry|%>
+		<div class="comment">
+		  <div class="comment-image">
+		    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+		  </div>
+		  <div class="comment-content">
+		    <h1><%=entry.author %></h1>
+		    <p><%=entry.content %></p>
+		    <p class="comment-detail"><%=entry.updated_at%></p>
+		  </div>
+		  <ul>
+			<li><%= link_to 'Ver', entry %></li>
+		  	<li><%= link_to 'Editar', edit_entry_path(entry) %></li>
+		  	<li><%= link_to 'Eliminar', entry, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		</div>
+
+	<%end%>
+	</tbody>
+</table>
+
+
+
+<button class="new_sub"><%= link_to 'Editar Topico', edit_discussion_path(@discussion) %> </button>
+<button class="new_sub"><%= link_to 'Inicio', root_path %></button>

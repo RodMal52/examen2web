@@ -1,0 +1,8 @@
+<h1>Editing discussion</h1>
+
+<%= render 'form' %>
+
+<%subforum = Subforum.find_by_id(@discussion.subforum_id) %>
+<%= link_to 'Show', @discussion %> |
+<%= link_to 'Back', subforum %>
+

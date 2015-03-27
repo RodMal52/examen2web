@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <h1><%= @subforum.title %></h1>
+      <p>Subforo  <%= @subforum.title %></p>  
+    </div>
+    <button class="new_sub"><%= link_to 'Crear Topico de discusion', new_discussion_path(session_subforum_id: @subforum.id) %></button>
+  </div>
+</div>
+
+<div class="lista">
+
+<table>
+	<thead>
+			<tr>
+				<th>Discusion</th>
+				<th>Autor</th>
+				<th>Descripcion</th>
+				<th>Ultima modificacion</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+	<tbody>
+	<%@subforum.discussions.each do |discussion|%>
+		<tr>
+			<td><%= link_to discussion.name, discussion %></td>
+			<td><%=discussion.author %></td>
+			<td><%=discussion.description %></td>
+			<td><%=discussion.updated_at %></td>
+       		<td><button class="new_sub"><%= link_to 'Editar', edit_discussion_path(discussion) %></button></td>
+        	<td><button class="new_sub"><%= link_to 'Eliminar', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+		</tr>
+
+	<%end%>
+	</tbody>
+</table>
+
+<button class="new_sub"><%= link_to 'Editar Subforo', edit_subforum_path(@subforum) %> </button>
+<button class="new_sub"><%= link_to 'Regresar', subforums_path %></button>
+</div>

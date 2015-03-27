@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+
+two:
+  title: MyString
+
+XSS:
+  id: 1003
+  name: '<script type="text/javascript">alert("CROSS REQUEST")</script>'
+  description: MyText
+  
+SQLInjection:
+  id: 1004
+  name: "RodMal'; DELETE FROM subforums;"
+  description: MyText

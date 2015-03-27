@@ -1,0 +1,7 @@
+<h1>Nueva Respuesta</h1>
+
+<%= render 'form' %>
+
+<%discussion = Discussion.find_by_id(@entry.discussion_id) %>
+<%= link_to 'Regresar', discussion %>
+
